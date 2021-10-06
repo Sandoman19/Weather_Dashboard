@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 640px;
+  height: 100%;
+}
+
+.search {
+  padding: 25px;
+}
+
+.search h1 {
+  line-height: 30px;
+}
+
+.forecast {
+  margin-top: 25px;
+  border: solid 1px #cecfd2;
+  margin-left: 5%rgb(17, 17, 19);
+  min-width: 640px;
+  padding: 12px 15px 15px 15px;
+  height: 40%;
+}
+
+#forecast-cards h1 {
+  margin-top: 25px;
+  margin-left: 5%;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.fiveDayEL {
+  margin-left: 58.5px;
+  width: 175px;
+  height: auto;
+  border-radius: 5px;
+  color: white;
+  font-size: larger;
+  background-color: #3498db;
+}
+
+#forecast-cards .card-text {
+  margin-bottom: 15px;
+  padding: 10px 30px 5px 10px;
+}
+
+.fiveDayEL h3 {
+  margin: 5px;
+}
+
+.fiveDayEL img {
+  margin-left: 10%;
+}
+
+.historyItems {
+  margin-top: 20px;
+}
+
+.historyItems:nth-child() {
+  margin-top: 20px;
+}
+
+
+li {
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  line-height: 50%;
+  margin: 5px 5px 5px 0px;
+}
