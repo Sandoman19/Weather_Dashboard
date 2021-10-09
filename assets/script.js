@@ -22,11 +22,16 @@ locationEl.addEventListener('submit', function(event){
         humidityTodayEl.textContent = weatherData.current.humidity;
         uvTodayEl.textContent = weatherData.current.uvi;
 
-        var fiveDaySlice = weatherData.daily.slice(0, 5)
+        var fiveDaySlice = weatherData.daily.slice(1, 6)
         for (let index = 0; index < fiveDaySlice.length; index++) {
           const weather = fiveDaySlice[index];
 
-          var weatherCard = createForecastCard(weather.dt ,weather.weather[0].icon , toCelcius(weather.temp.day).toFixed(1) + ' C' ,weather.speed ,weather.humidity)
+          var weatherDate = moment.unix(weather.dt).format("DD/MM/YYYY");
+          var weatherIcon = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`
+
+          var weatherCard = createForecastCard(weatherDate ,weatherIcon , toCelcius(weather.temp.day).toFixed(1) + ' C' ,weather.wind_speed ,weather.humidity)         
+          
+          
           forcastCards.append(weatherCard)
 
           console.log(weatherCard)
@@ -34,6 +39,8 @@ locationEl.addEventListener('submit', function(event){
     })
 
 })
+
+
 
 function createUl(content){
 
@@ -56,7 +63,7 @@ function createForecastCard(date, icon, temp, wind, humidity){
 
   var titleH4 = document.createElement("h4")
   titleH4.setAttribute("class", "card-title")
-  titleH4.textContent = ("day and date" + date)
+  titleH4.textContent = (date)
   bodyDiv.appendChild(titleH4)
 
   var textP = document.createElement("p")
@@ -66,7 +73,7 @@ function createForecastCard(date, icon, temp, wind, humidity){
   var fiveDayEL= document.createElement("ul")
   fiveDayEL.setAttribute("class", "five-Day")
 
-  var iconUl = createUl("icon " + icon)
+  var iconUl = createUl("icon " + `<img src="${icon}"></img>`)
   var tempUl = createUl("temp: " + temp)
   var windUl = createUl("wind: " + wind)
   var humidityUl = createUl("humidity: " + humidity)
